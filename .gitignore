@@ -52,6 +52,7 @@ artifacts/
 *.obj
 *.pch
 *.pdb
+!libbool.pdb
 *.pgc
 *.pgd
 *.rsp
