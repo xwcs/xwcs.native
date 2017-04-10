@@ -17,3 +17,6 @@ so all its done by this method:
 7: when xwcs.core will atempt to load xwcs.native_archproxy.dll it will fail and it will fire AppDomain.CurrentDomain.AssemblyResolve event
 8: we did static core facade class  xwcs.core.Core which handle that event. it will check missed assembly name for presence "_archproxy" 
    place holder and it will replace it by x86 or x64 based on IntPtr size. And it will load corect dll
+
+NOTE: Pay attention if you are building Release or Debug, cause both share folder for x86 and x64 builds, so if you switch from 
+      Release to Debug and vs. you need build also xwcs.native
