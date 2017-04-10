@@ -1,38 +1,19 @@
-========================================================================
-    DYNAMIC LINK LIBRARY : xwcs.native Project Overview
-========================================================================
+This library act as dll proxy to native c++ dll
+Native c++ dll libbool_x86 or libbool_x64.dll will be loaded depending on OS where final application will be executed
 
-AppWizard has created this xwcs.native DLL for you.  
+.NET AnyCPU act as this: it will JIT assemblies depending on target paltform.
 
-This file contains a summary of what you will find in each of the files that
-make up your xwcs.native application.
+in order to obtain wanted functional effect we need force .NET to not find assembly and thus it will call
+asembly resolve event. In this event we will force load of correct native dll
 
-xwcs.native.vcxproj
-    This is the main project file for VC++ projects generated using an Application Wizard. 
-    It contains information about the version of Visual C++ that generated the file, and 
-    information about the platforms, configurations, and project features selected with the
-    Application Wizard.
+so all its done by this method:
 
-xwcs.native.vcxproj.filters
-    This is the filters file for VC++ projects generated using an Application Wizard. 
-    It contains information about the association between the files in your project 
-    and the filters. This association is used in the IDE to show grouping of files with
-    similar extensions under a specific node (for e.g. ".cpp" files are associated with the
-    "Source Files" filter).
-
-xwcs.native.cpp
-    This is the main DLL source file.
-
-xwcs.native.h
-    This file contains a class declaration.
-
-AssemblyInfo.cpp
-	Contains custom attributes for modifying assembly metadata.
-
-/////////////////////////////////////////////////////////////////////////////
-Other notes:
-
-AppWizard uses "TODO:" to indicate parts of the source code you
-should add to or customize.
-
-/////////////////////////////////////////////////////////////////////////////
+1: we created libbool in 2 forms and we deploy it within xwcs.native project in libbool subfolder
+2: we created managed wrapper xwcs.native with xwcs.native.boolexpr.Helper Class this class handle managed <-> native bridge
+3: xwcs.native build fake dll  into its build dirs (xwcs.native_archproxy.dll) but it will not deploy it
+4: when we setup reference to this assembly in xwcs.core project we set not copy to local (so dll from point 3 will not be deployed)
+5: in post build event we copy xwcs.native_archproxy.dll intoo corect xwcs.native_x86.dll or xwcs.native_x64.dll)
+6: in post build event we copy wrappers and all native libraries into final deploy directory
+7: when xwcs.core will atempt to load xwcs.native_archproxy.dll it will fail and it will fire AppDomain.CurrentDomain.AssemblyResolve event
+8: we did static core facade class  xwcs.core.Core which handle that event. it will check missed assembly name for presence "_archproxy" 
+   place holder and it will replace it by x86 or x64 based on IntPtr size. And it will load corect dll

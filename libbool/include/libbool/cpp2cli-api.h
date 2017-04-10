@@ -7,7 +7,7 @@
 #define EXPIMP_TEMPLATE
 #endif
 #else  /* def HW_UNIX */
-#if defined(libbool_EXPORTS)
+#if defined(EXPORT_DLL)
 #ifndef DECLSPECIFIER
 #define DECLSPECIFIER __declspec(dllexport)
 #define EXPIMP_TEMPLATE 

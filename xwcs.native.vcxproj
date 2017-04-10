@@ -74,19 +74,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\bin\$(Configuration)\</OutDir>
+    <OutDir>$(PlatformTarget)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_archproxy</TargetName>
+    <IntDir>$(PlatformTarget)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(PlatformTarget)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_archproxy</TargetName>
+    <IntDir>$(PlatformTarget)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\bin\$(Configuration)\</OutDir>
+    <OutDir>$(PlatformTarget)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_archproxy</TargetName>
+    <IntDir>$(PlatformTarget)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(PlatformTarget)\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_archproxy</TargetName>
+    <IntDir>$(PlatformTarget)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -97,12 +105,14 @@
       <AdditionalIncludeDirectories>$(ProjectDir)libbool\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libbool.lib</AdditionalDependencies>
+      <AdditionalDependencies>libbool_$(PlatformTarget).lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)libbool\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget)$(TargetExt)
+copy $(OutDir)$(TargetName).pdb $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget).pdb
+copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -114,10 +124,15 @@
       <AdditionalIncludeDirectories>C:\Projekty\xw\xw.ee.laco\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libbool.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>E:\tmp\CMAKE_BUILDS\xw\cmake_build_32_v2015\libbool\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libbool_$(PlatformTarget).lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)libbool\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget)$(TargetExt)
+copy $(OutDir)$(TargetName).pdb $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget).pdb
+copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -127,12 +142,14 @@
       <AdditionalIncludeDirectories>$(ProjectDir)libbool\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libbool.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)libbool\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libbool_$(PlatformTarget).lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)libbool\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget)$(TargetExt)
+copy $(OutDir)$(TargetName).pdb $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget).pdb
+copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,10 +160,15 @@
       <AdditionalIncludeDirectories>C:\Projekty\xw\xw.ee.laco\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libbool.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>E:\tmp\CMAKE_BUILDS\xw\cmake_build_32_v2015\libbool\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libbool_$(PlatformTarget).lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)libbool\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget)$(TargetExt)
+copy $(OutDir)$(TargetName).pdb $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget).pdb
+copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Reference Include="System" />
