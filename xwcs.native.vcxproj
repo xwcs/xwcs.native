@@ -102,7 +102,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(ProjectDir)libbool\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)libbool\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>libbool_$(PlatformTarget).lib</AdditionalDependencies>
@@ -121,7 +121,7 @@ copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>C:\Projekty\xw\xw.ee.laco\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)libbool\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>libbool_$(PlatformTarget).lib</AdditionalDependencies>
@@ -139,7 +139,7 @@ copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(ProjectDir)libbool\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)libbool\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>libbool_$(PlatformTarget).lib</AdditionalDependencies>
@@ -157,7 +157,7 @@ copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>C:\Projekty\xw\xw.ee.laco\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)libbool\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>libbool_$(PlatformTarget).lib</AdditionalDependencies>
