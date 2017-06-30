@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>xwcs.native</id>
+    <version>1.0.6390.24952</version>
+    <title>xwcs.native</title>
+    <authors>Ladislav Sopko</authors>
+    <!--owners>0ics srls</owners-->
+    <!--licenseUrl>...</licenseUrl>
+    <projectUrl>...</projectUrl>
+    <iconUrl>...</iconUrl-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Proxy to native DLL with AnyCpu on C# side</description>
+    <releaseNotes>First release</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Proxy to native DLL with AnyCpu on C# side</tags>
+  </metadata>
+  <files>
+    <file src="libbool\lib\libbool_x64.dll" target="Build\libbool_x64.dll" />
+    <file src="libbool\lib\libbool_x64.lib" target="Build\libbool_x64.lib" />
+    <file src="libbool\lib\libbool_x64.map" target="Build\libbool_x64.map" />
+    <file src="libbool\lib\libbool_x86.dll" target="Build\libbool_x86.dll" />
+    <file src="libbool\lib\libbool_x86.lib" target="Build\libbool_x86.lib" />
+    <file src="libbool\lib\libbool_x86.map" target="Build\libbool_x86.map" />
+    <file src="libbool\lib\xwcs.native_x64.dll" target="Build\xwcs.native_x64.dll" />
+    <file src="libbool\lib\xwcs.native_x64.pdb" target="Build\xwcs.native_x64.pdb" />
+    <file src="libbool\lib\xwcs.native_x86.dll" target="Build\xwcs.native_x86.dll" />
+    <file src="libbool\lib\xwcs.native_x86.pdb" target="Build\xwcs.native_x86.pdb" />
+    <file src="xwcs.native.targets" target="Build\xwcs.native.targets" />
+    <file src="x64\Release\xwcs.native_archproxy.dll" target="Build\xwcs.native_archproxy.dll" />
+    <!--file src="x64\Release\xwcs.native_archproxy.dll" target="lib\net46\xwcs.native_archproxy.dll" /-->
+  </files>
+</package>

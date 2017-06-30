@@ -20,3 +20,10 @@ so all its done by this method:
 
 NOTE: Pay attention if you are building Release or Debug, cause both share folder for x86 and x64 builds, so if you switch from 
       Release to Debug and vs. you need build also xwcs.native
+
+BUILD:
+
+There is different post build step in case of Deploy config!!!! it will push Nuget!!!
+1: Release x64
+2: Release x86 => version number during nuget deploy
+3: Deploy (does not mother) -> will produce nuget and push it

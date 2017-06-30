@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>xwcs.native</id>
-    <version>1.0.0</version>
+    <version>1.0.6390.25150</version>
     <title>xwcs.native</title>
     <authors>Ladislav Sopko</authors>
     <!--owners>0ics srls</owners-->
@@ -27,5 +27,7 @@
     <file src="libbool\lib\xwcs.native_x86.dll" target="Build\xwcs.native_x86.dll" />
     <file src="libbool\lib\xwcs.native_x86.pdb" target="Build\xwcs.native_x86.pdb" />
     <file src="xwcs.native.targets" target="Build\xwcs.native.targets" />
+    <file src="x64\Release\xwcs.native_archproxy.dll" target="Build\xwcs.native_archproxy.dll" />
+    <!--file src="x64\Release\xwcs.native_archproxy.dll" target="lib\net46\xwcs.native_archproxy.dll" /-->
   </files>
 </package>

@@ -205,9 +205,9 @@ copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget)$(TargetExt)
-copy $(OutDir)$(TargetName).pdb $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget).pdb
-copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command>
+      <Command>pushd $(ProjectDir)
+if $(ConfigurationName) == Deploy $(SolutionDir)deploy\MakeNativeNuget.bat - -
+popd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -241,9 +241,9 @@ copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget)$(TargetExt)
-copy $(OutDir)$(TargetName).pdb $(ProjectDir)libbool\lib\$(ProjectName)_$(PlatformTarget).pdb
-copy $(ProjectDir)libbool\lib\*.*  $(SolutionDir)\bin\$(Configuration)\</Command>
+      <Command>pushd $(ProjectDir)
+if $(ConfigurationName) == Deploy $(SolutionDir)deploy\MakeNativeNuget.bat - -
+popd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
