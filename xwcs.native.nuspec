@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>xwcs.native</id>
-    <version>1.0.6390.25150</version>
+    <version>1.0.0-alpha</version>
     <title>xwcs.native</title>
     <authors>Ladislav Sopko</authors>
     <!--owners>0ics srls</owners-->
